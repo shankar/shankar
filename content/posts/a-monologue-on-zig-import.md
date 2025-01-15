@@ -46,7 +46,7 @@ To understand how importing works we need to first understand namespaces.
 
 A namespace is a container for related declarations. Anything within two curly braces is a namespace. The only exception to this rule is zig files.
 
-## @import
+## @import function
 
 @import is a builtin funtion.
 
@@ -69,7 +69,7 @@ There are 3 packages that are always available:
 
 Explaining these packages is beyond the scope of this post.
 
-Now let us write some code to demonstrate the return value of @import:
+Remember @import function returns a struct ? let us write some code to demonstrate that.
 {{< file "hello.zig" >}}
 ```zig
 const print = @import("std").debug.print;
@@ -110,6 +110,54 @@ pub fn getRoll(student: @This()) u8 {
 }
 ```
 {{< /file >}}
+
+@import supports circular imports. Again lets write some code to demonstrate this.
+
+{{< file "main.zig" >}}
+```zig
+const one = @import("one.zig");
+pub fn main() void {
+    one.func();
+}
+```
+{{< /file >}}
+
+{{< file "one.zig" >}}
+```zig
+const std = @import("std");
+const two = @import("two.zig");
+
+pub fn func() void {
+    std.debug.print("This is one.zig file\n", .{});
+    std.time.sleep(2_000_000_000);
+    two.func();
+}
+```
+{{< /file >}}
+
+{{< file "two.zig" >}}
+```zig
+const std = @import("std");
+const one = @import("one.zig");
+
+pub fn func() void {
+    std.debug.print("This is two.zig file\n", .{});
+    std.time.sleep(2_000_000_000);
+    one.func();
+}
+```
+{{< /file >}}
+
+If we run the program with `zig run main.zig`, every 2 seconds it will endlessly print alternating lines of
+
+```
+This is one.zig file
+This is two.zig file
+```
+
+To demonstrate circular import the `one.zig` file imports and runs `func()` from `two.zig` file and `two.zig` file imports and runs `func()` from `one.zig`.
+
+## Pub keyword
 
 You would have perceptively noticed the keyword `pub` in the code. The `pub` keyword decides which declarations in a file are exposed when that file is imported by another file. Enough talk lets code
 
