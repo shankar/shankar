@@ -150,10 +150,10 @@ pub fn func() void {
 
 If we run the program with `zig run main.zig`, every 2 seconds it will endlessly print alternating lines of
 
-```
+{{< output >}}
 This is one.zig file
 This is two.zig file
-```
+{{< /output >}}
 
 To demonstrate circular import the `one.zig` file imports and runs `func()` from `two.zig` file and `two.zig` file imports and runs `func()` from `one.zig`.
 
