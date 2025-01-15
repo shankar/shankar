@@ -1,0 +1,28 @@
+baseURL: https://shankar.blog/
+languageCode: en-us
+title: shankar.blog
+theme: monolog
+taxonomies:
+  category: categories
+  tag: tags
+  series: series
+menus:
+    main:
+        - name: Posts
+          pageRef: /posts
+          weight: 10
+        - name: Series
+          pageRef: /series
+          weight: 20
+        - name: Categories
+          pageRef: /categories
+          weight: 30
+        - name: tags
+          pageRef: /tags
+          weight: 40
+markup:
+    highlight:
+        lineNos: true
+        lineNumbersInTable: false
+        noClasses: false
+disableHugoGeneratorInject: true
