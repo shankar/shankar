@@ -150,7 +150,7 @@ pub fn func() void {
 ```
 {{< /file >}}
 
-If we run the program with `zig run main.zig`, every 2 seconds it will print the below output with increasing count value by 1 till it reaches 10
+If we run the program with `zig run main.zig`, it will print the below output with increasing count value by 1 till it reaches 10
 
 {{< output >}}
 This is one.zig file
