@@ -129,7 +129,6 @@ const two = @import("two.zig");
 
 pub fn func() void {
     std.debug.print("This is one.zig file\n", .{});
-    std.time.sleep(2_000_000_000);
     two.func();
 }
 ```
@@ -140,19 +139,22 @@ pub fn func() void {
 const std = @import("std");
 const one = @import("one.zig");
 
+var counter: u8 = 1;
+
 pub fn func() void {
-    std.debug.print("This is two.zig file\n", .{});
-    std.time.sleep(2_000_000_000);
+    std.debug.print("Count: {d}\n", .{counter});
+    if (counter == 10) return;
+    counter += 1;
     one.func();
 }
 ```
 {{< /file >}}
 
-If we run the program with `zig run main.zig`, every 2 seconds it will endlessly print alternating lines of
+If we run the program with `zig run main.zig`, every 2 seconds it will print the below output with increasing count value by 1 till it reaches 10
 
 {{< output >}}
 This is one.zig file
-This is two.zig file
+Count: 1
 {{< /output >}}
 
 To demonstrate circular import the `one.zig` file imports and runs `func()` from `two.zig` file and `two.zig` file imports and runs `func()` from `one.zig`.
