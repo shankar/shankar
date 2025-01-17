@@ -103,6 +103,19 @@ int main() {
 
 {{< /file >}}
 
+## Terminal
+
+If we need to show some commandline output we can make use of the `output` shortcode.
+
+{{< output >}}
+<prompt/><kbd>brew update</kbd>
+==> Updating Homebrew...
+Already up-to-date.
+<prompt/><kbd>su -</kbd>
+<rootprompt/><cursor/>
+{{< /output >}}
+
+
 ## ASCII Drawings
 
 We can draw in `<pre>` tags using [box-drawing characters](https://en.wikipedia.org/wiki/Box-drawing_characters):
