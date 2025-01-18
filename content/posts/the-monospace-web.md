@@ -1,5 +1,6 @@
 ---
 title: The Monospace Web
+description: Showcase for monolog theme for hugo
 author: Shankar Murralitharan
 email: hello@shankar.blog
 date: 2025-01-10T16:43:20+05:30

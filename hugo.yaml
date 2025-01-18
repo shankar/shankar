@@ -1,6 +1,10 @@
 baseURL: https://shankar.blog/
 languageCode: en-us
 title: shankar.blog
+params:
+  description: Shankar's Personal blog
+  author: Shankar Murralitharan
+  email: hello@shankar.blog
 theme: monolog
 taxonomies:
   category: categories
