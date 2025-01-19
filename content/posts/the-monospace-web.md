@@ -11,7 +11,7 @@ tags:
     - blogging
 summary: >
     This post showcases the styling ability of the theme I developed for hugo. This post will be regularly updated as I develop more feature to the monolog theme.
-featured: true
+featured: false
 draft: false
 ---
 

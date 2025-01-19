@@ -1,6 +1,6 @@
 ---
 title: A Monologue on Zig Import
-description: 'Understanding about @import function and pub keyword in zig'
+description: 'Review @import function and pub keyword in zig'
 author: Shankar Murralitharan
 email: hello@shankar.blog
 date: 2025-01-13T03:28:33+05:30
@@ -15,7 +15,8 @@ series:
     - Learning zig
 summary: >
     learning how @import function and pub keyword works. @import function is used to import declaration from other file sources. Pub keyword is used to expose declarations from one file to another on import.
-featured: false
+cover: images/zero.webp
+featured: true
 draft: false
 ---
 
