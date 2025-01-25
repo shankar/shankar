@@ -109,11 +109,11 @@ int main() {
 If we need to show some commandline output we can make use of the `output` shortcode.
 
 {{< output >}}
-<prompt/><kbd>brew update</kbd>
+<prompt><kbd>brew update</kbd>
 ==> Updating Homebrew...
 Already up-to-date.
-<prompt/><kbd>su -</kbd>
-<rootprompt/><cursor/>
+<prompt><kbd>su -</kbd>
+<rootprompt><cursor>
 {{< /output >}}
 
 
